@@ -1,0 +1,12 @@
+libname learn "C:\Users\dheeru\Desktop\Book Programmes and example2\";
+data missd;
+   set learn.missing;
+   retain missA 0;
+   retain missB 0;
+   retain missC 0;
+if missing(A) then missA = missA+1;
+if missing(B) then missB = missB+1;
+if missing(C) then missC = missC+1;
+title "Missing data set";
+proc print data = missd;
+run;

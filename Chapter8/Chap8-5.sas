@@ -1,0 +1,31 @@
+data temp;
+   do N = 1 to 20;
+      LogN = Log(N);
+	  output;
+   end;
+title "The log values";
+proc print data = temp;
+run;
+
+data temp2;
+   do N = 5 to 100 by 5;
+      LogN = Log(N);
+	  output;
+   end;
+title "The log values by 5";
+proc print data = temp2;
+run;
+
+data temp3;
+do x = 0 to 10 by 0.01;
+   y = 3*x**2 - 5*x + 10;
+   output;
+   end;
+symbol value=none interpol=sm width=2;
+title "Graph of X and Y";
+proc gplot data=temp3;
+plot y * x;
+run;
+proc print data = temp3;
+run;
+quit;
