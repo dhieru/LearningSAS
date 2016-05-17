@@ -1,0 +1,13 @@
+libname learn "C:\Users\dheeru\Desktop\Book Programmes and example2\";
+data tempSales;
+   set learn.blood;
+   length CholGroup $ 6 ;
+   Select;
+      when (missing(Chol)) CholGroup = ' ';
+      when (Chol < 110) CholGroup = 'Low';
+	  when (Chol > 140) CholGroup = 'Medium';
+	  otherwise CholGroup = 'High';
+   end;
+title "The Blood Data set";
+proc print data = tempSales;
+run;
