@@ -1,0 +1,14 @@
+data demographic;
+   infile "C:\Users\dheeru\Desktop\Book Programmes and example2\mydata.txt";
+   input Gender $ Age Height Weight;
+   var W = 3(3);
+run;
+proc print data=demographic;
+   title 'Gender Frequencies';
+   table Weight;
+run;
+proc means maxdec = 2 data=demographic;
+   title 'Summary Statistics';
+   var Age Height Weight;
+  * vars 4.3;
+run;
